@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tambahkan link CSS untuk Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+  <title>Modal dengan Tailwind CSS</title>
+</head>
+<body>
+  
+  <!-- Tampilkan tombol -->
+  <button id="openModal" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Buka Modal
+  </button>
+
+  <!-- Tampilkan modal -->
+  <div id="modal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    <div class="modal-container bg-white w-1/2 mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div class="modal-content py-4 text-left px-6">
+        <!-- Konten modal -->
+        <div class="flex justify-between items-center pb-3">
+          <p class="text-2xl font-bold">Modal</p>
+          <button id="closeModal" class="text-black close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Ini adalah konten modal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tambahkan script JavaScript -->
+  <script>
+    // Ambil elemen tombol dan modal
+    const openModalBtn = document.getElementById('openModal');
+    const modal = document.getElementById('modal');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    // Fungsi untuk membuka modal
+    function openModal() {
+      modal.classList.remove('hidden');
+    }
+
+    // Fungsi untuk menutup modal
+    function closeModal() {
+      modal.classList.add('hidden');
+    }
+
+    // Tambahkan event listener pada tombol untuk membuka modal
+    openModalBtn.addEventListener('click', openModal);
+    
+    // Tambahkan event listener pada tombol untuk menutup modal
+    closeModalBtn.addEventListener('click', closeModal);
+  </script>
+
+</body>
+</html>
